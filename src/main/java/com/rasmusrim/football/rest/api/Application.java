@@ -42,7 +42,7 @@ public class Application {
 
     private void addPlayers() {
         for (int i = 0; i < 11; i++) {
-            var player = new Player();
+            Player player = new Player();
             player.setFirstName(faker.name().firstName());
             player.setLastName(faker.name().lastName());
 
