@@ -15,7 +15,8 @@ public class GoalsController {
     GoalsRepository goalsRepository;
 
     @GetMapping(value = "/goals/{id}")
-    public @ResponseBody Iterable<Goals> getGoals(@PathVariable(name = "id") long playerId) {
-        return goalsRepository.findByPlayerId(playerId);
+    public @ResponseBody
+    Goals getGoals(@PathVariable(name = "id") long playerId) {
+        return goalsRepository.findByPlayerId(playerId).get(0);
     }
 }

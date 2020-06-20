@@ -15,7 +15,7 @@ public class AvatarController {
     AvatarRepository avatarRepository;
 
     @GetMapping(value = "/avatar/{id}")
-    public @ResponseBody Iterable<Avatar> getAvatars(@PathVariable(name = "id") long playerId) {
-        return avatarRepository.findByPlayerId(playerId);
+    public @ResponseBody Avatar getAvatars(@PathVariable(name = "id") long playerId) {
+        return avatarRepository.findByPlayerId(playerId).get(0);
     }
 }
