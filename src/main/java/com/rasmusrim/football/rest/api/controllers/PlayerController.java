@@ -1,6 +1,7 @@
 package com.rasmusrim.football.rest.api.controllers;
 
 import com.rasmusrim.football.rest.api.interfaces.PlayerRepository;
+import com.rasmusrim.football.rest.api.models.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +22,10 @@ public class PlayerController {
     @GetMapping
     public @ResponseBody Set<Long> getPlayers() {
 
-        var players = playerRepository.findAll();
+        Iterable<Player> players = playerRepository.findAll();
 
         Set<Long> playerIds = new HashSet<>();
-        for (var player : players) {
+        for (Player player : players) {
             playerIds.add(player.getId());
 
         }
@@ -35,7 +36,7 @@ public class PlayerController {
     @GetMapping(value = "/{id}")
     public @ResponseBody Map<String, String> getPlayer(@PathVariable(name = "id") long playerId) {
 
-        var player = playerRepository.findById(playerId).get();
+        Player player = playerRepository.findById(playerId).get();
 
         Map<String, String> returnValue = new HashMap<>();
 
