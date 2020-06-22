@@ -42,6 +42,7 @@ public class PlayerController {
 
         returnValue.put("firstName", player.getFirstName());
         returnValue.put("lastName", player.getLastName());
+        returnValue.put("favoriteColorId", player.getFavoriteColor().getId().toString());
 
         return returnValue;
     }

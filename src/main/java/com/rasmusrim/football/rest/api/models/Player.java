@@ -1,8 +1,11 @@
 package com.rasmusrim.football.rest.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Player {
@@ -13,6 +16,9 @@ public class Player {
 
     private String firstName;
     private String lastName;
+
+    @ManyToOne
+    private Color favoriteColor;
 
     public Long getId() {
         return id;
@@ -36,5 +42,13 @@ public class Player {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Color getFavoriteColor() {
+        return favoriteColor;
+    }
+
+    public void setFavoriteColor(Color favoriteColor) {
+        this.favoriteColor = favoriteColor;
     }
 }
